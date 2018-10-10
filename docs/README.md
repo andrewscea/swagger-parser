@@ -11,28 +11,28 @@ Things to Know
 Classes & Methods
 ---------------------
 
-#### [`SwaggerParser`](swagger-parser.md)
-- [`api`](swagger-parser.md#api)
-- [`$refs`](swagger-parser.md#refs)
-- [`validate()`](swagger-parser.md#validateapi-options-callback)
-- [`dereference()`](swagger-parser.md#dereferenceapi-options-callback)
-- [`bundle()`](swagger-parser.md#bundleapi-options-callback)
-- [`parse()`](swagger-parser.md#parseapi-options-callback)
-- [`resolve()`](swagger-parser.md#resolveapi-options-callback)
+#### [The `SwaggerParser` class](swagger-parser.md)
+- [`api` property](swagger-parser.md#api)
+- [`$refs` property](swagger-parser.md#refs)
+- [`validate()` method](swagger-parser.md#validateapi-options-callback)
+- [`dereference()` method](swagger-parser.md#dereferenceapi-options-callback)
+- [`bundle()` method](swagger-parser.md#bundleapi-options-callback)
+- [`parse()` method](swagger-parser.md#parseapi-options-callback)
+- [`resolve()` method](swagger-parser.md#resolveapi-options-callback)
 
-#### [`$Refs`](refs.md)
-- [`circular`](refs.md#circular)
-- [`paths()`](refs.md#pathstypes)
-- [`values()`](refs.md#valuestypes)
-- [`exists()`](refs.md#existsref)
-- [`get()`](refs.md#getref-options)
-- [`set()`](refs.md#setref-value-options)
+#### [The `$Refs` class](refs.md)
+- [`circular` property](refs.md#circular)
+- [`paths()` method](refs.md#pathstypes)
+- [`values()` method](refs.md#valuestypes)
+- [`exists()` method](refs.md#existsref)
+- [`get()` method](refs.md#getref-options)
+- [`set()` method](refs.md#setref-value-options)
 
-#### [`YAML`](yaml.md)
-- [`parse()`](yaml.md#parsetext)
-- [`stringify()`](yaml.md#stringifyvalue)
+#### [The `YAML` object](yaml.md)
+- [`parse()` method](yaml.md#parsetext)
+- [`stringify()` method](yaml.md#stringifyvalue)
 
-#### [`Options`](options.md)
+#### [The `Options` object](options.md)
 
 
 ### Class methods vs. Instance methods
@@ -84,7 +84,7 @@ SwaggerParser.validate(mySchema)
 
 
 ### Circular $Refs
-Swagger APIs can contain [circular $ref pointers](https://gist.github.com/James-Messinger/d18278935fc73e3a0ee1), and Swagger Parser fully supports them. Circular references can be resolved and dereferenced just like any other reference.  However, if you intend to serialize the dereferenced api as JSON, then you should be aware that [`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) does not support circular references by default, so you will need to [use a custom replacer function](https://stackoverflow.com/questions/11616630/json-stringify-avoid-typeerror-converting-circular-structure-to-json).
+Swagger APIs can contain [circular $ref pointers](https://gist.github.com/JamesMessinger/d18278935fc73e3a0ee1), and Swagger Parser fully supports them. Circular references can be resolved and dereferenced just like any other reference.  However, if you intend to serialize the dereferenced api as JSON, then you should be aware that [`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) does not support circular references by default, so you will need to [use a custom replacer function](https://stackoverflow.com/questions/11616630/json-stringify-avoid-typeerror-converting-circular-structure-to-json).
 
 You can disable circular references by setting the [`dereference.circular`](options.md) option to `false`. Then, if a circular reference is found, a `ReferenceError` will be thrown.
 
